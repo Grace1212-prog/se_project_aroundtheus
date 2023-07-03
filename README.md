@@ -14,3 +14,5 @@ This is the third project of the Web Development at TripleTen. It is a responsiv
 
 ![Alt text](<around the u.s (responsive design 1).png>)
 ![Alt text](<responsive web design (mobile).png>)
+
+Check out my project - https://github.com/Grace1212-prog/se_project_aroundtheus
