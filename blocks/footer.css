@@ -1,0 +1,22 @@
+.footer {
+  padding-top: 40px;
+}
+.footer__copyright {
+  max-width: 318px;
+  height: 18px;
+  width: 100%;
+  color: #545454;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+@media screen and (max-width: 770px) {
+  .footer__copyright {
+    display: flex;
+  }
+}
+@media (max-width: 1100px) {
+  .footer__copyright {
+    padding-left: 50px;
+  }
+}
