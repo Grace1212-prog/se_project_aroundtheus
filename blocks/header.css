@@ -1,13 +1,26 @@
 .header {
   padding-top: 45px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+  border-style: solid;
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+  border-bottom-width: 1px;
+  color: #545454;
 }
+.header__image {
+  width: 173px;
+  height: 33px;
+}
+
 @media screen and (max-width: 480px) {
   .header {
-    width: 126px;
-    height: 24px;
     padding-top: 28px;
     margin-bottom: 32px;
   }
-
+  .header__image {
+    width: 126px;
+    height: 24px;
+    margin-left: 27px;
+  }
 }
