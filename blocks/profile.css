@@ -131,9 +131,6 @@
   .profile__info {
     width: 100%;
   }
-  .profile__title {
-    justify-content: center;
-  }
   .profile {
     flex-wrap: nowrap;
   }
