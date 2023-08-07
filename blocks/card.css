@@ -9,7 +9,7 @@
   height: 282px;
   border-radius: 10px;
 }
-.card__footer {
+.card__description {
   display: flex;
   background-color: white;
   color: black;
