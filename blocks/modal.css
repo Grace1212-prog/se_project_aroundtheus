@@ -5,7 +5,6 @@
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  /*display: flex;*/
   padding: 0 19px;
   display: none;
 }
@@ -13,12 +12,12 @@
   display: flex;
 }
 .modal__container {
-  padding: 34px 36px 36px 36px;
+  padding: 34px 36px 36.51px 36px;
   background-color: #fff;
   margin: auto;
   border-radius: 10px;
   position: relative;
-  width: 430px;
+  width: 330px;
   height: 330px;
 }
 .modal__close {
