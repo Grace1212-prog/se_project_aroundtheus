@@ -30,6 +30,9 @@
   border: none;
   cursor: pointer;
 }
+.card__like-button_active {
+  background: url(../images/like-icon-active.svg);
+}
 .card__like-button:hover {
   opacity: 50%;
 }
@@ -42,4 +45,14 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+}
+.card__delete-button {
+  background: url(../images/Trash.svg) center no-repeat;
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  border: none;
+}
+.card__delete-button:hover {
+  opacity: 60%;
 }
