@@ -75,7 +75,7 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
-addCardModal.addEventListener("click", () => {
+addCardModal.addEventListener("submit", () => {
   cardTitleInput.value = cardListEL.textContent;
   cardUrlInput.value = cardUrlInput.textContent;
   addCardModal.classList.add("modal_opened");
@@ -113,15 +113,13 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  //add the event listener to the delete button
-
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
 
-  /* deleteButton.addEventListener("click", () => {
-    getCardElement.remove("card__delete-button");
-  }); */
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   cardImageEL.src = cardData.link;
   cardImageEL.alt = cardData.name;
