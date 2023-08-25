@@ -38,8 +38,10 @@ const addCardModal = document.querySelector("#add-card-modal");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 const addCardForm = addCardModal.querySelector(".modal__form");
-//addCardForm.addEventListener("submit", handleAddCardFormSubmit);
+addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 const cardTitleInput = document.querySelector("#card-title-input");
+const cardUrlInput = document.querySelector("#card-url-input");
+const deleteButton = document.querySelector(".card__delete-card");
 
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
@@ -74,9 +76,18 @@ function openModal(modal) {
 }
 
 addCardModal.addEventListener("click", () => {
-  cardTitleInput.value = addCardForm.textContent;
-  cardInput.value = cardUrlInput.textContent;
+  cardTitleInput.value = cardListEL.textContent;
+  cardUrlInput.value = cardUrlInput.textContent;
   addCardModal.classList.add("modal_opened");
+  closePopup(addCardForm);
+});
+
+addCardForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  cardTitleInput.textContent = cardTitleInput.value;
+  cardUrlInput.textContent = cardUrlInput.value;
+  addCardForm.classList.add("modal__input");
+  closePopup();
 });
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
@@ -91,7 +102,7 @@ function handleAddCardFormSubmit(evt) {
   const cardData = { name, link };
   const cardElement = getCardElement(cardData);
   cardListEL.prepend(cardElement);
-  //renderCard({ name, link }, cardsWrap);
+  renderCard({ name, link }, cardsWrap);
   closePopup(addCardModal);
 }
 
@@ -102,18 +113,15 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  
   //add the event listener to the delete button
-
-  
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove("card__delete-button");
-  });
+  /* deleteButton.addEventListener("click", () => {
+    getCardElement.remove("card__delete-button");
+  }); */
 
   cardImageEL.src = cardData.link;
   cardImageEL.alt = cardData.name;
