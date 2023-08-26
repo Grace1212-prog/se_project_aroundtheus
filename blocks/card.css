@@ -56,3 +56,8 @@
 .card__delete-button:hover {
   opacity: 60%;
 }
+
+/*.card__image:last-of-type {
+  width: 433px;
+  height: 540px;
+}*/
