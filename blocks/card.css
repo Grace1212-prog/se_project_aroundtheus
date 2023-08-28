@@ -5,8 +5,8 @@
   border-radius: 10px;
 }
 .card__image {
-  max-width: 75vw;
-  max-height: 75vh;
+  width: 282px;
+  height: 282px;
   border-radius: 10px;
 }
 .card__description {
@@ -50,14 +50,17 @@
   background: url(../images/Trash.svg) center no-repeat;
   width: 18px;
   height: 19.3px;
-  position: absolute;
+  position: relative;
   border: none;
+  top: 18px;
+  right: 15px;
 }
 .card__delete-button:hover {
   opacity: 60%;
 }
-
-/*.card__image:last-of-type {
-  width: 433px;
-  height: 540px;
-}*/
+.card__image_preview {
+  max-width: 75vw;
+  max-height: 75vh;
+  position: fixed;
+  top: 90px;
+}
