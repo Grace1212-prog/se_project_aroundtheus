@@ -134,6 +134,7 @@ function getCardElement(cardData) {
     const modalImage = previewImageModal.querySelector(".card__image_preview");
     modalImage.src = cardData.link;
     modalImage.alt = cardData.name;
+    //const previewImageModal = document.querySelector(".card__description");
     previewImageModal.classList.add("modal_opened");
   });
 

@@ -11,6 +11,10 @@
 .modal_opened {
   display: flex;
 }
+/*.modal_opened:hover {
+  visibility: visible;
+  opacity: 1;
+}*/
 .modal__container {
   padding: 34px 36px 36.51px 36px;
   background-color: #fff;
@@ -32,6 +36,18 @@
   position: absolute;
   top: -45px;
   right: -45px;
+}
+.modal__container > .modal__close {
+  border: 2px solid white;
+  border-radius: 50%;
+  visibility: hidden;
+  width: 60px;
+  height: 60px;
+  transition: visibility 0.5s linear;
+}
+.modal__container:hover > .modal__close {
+  visibility: visible;
+  opacity: 1;
 }
 .modal__form {
   display: flex;
@@ -93,10 +109,13 @@
 .modal__button:hover {
   opacity: 0.8;
 }
-/*.modal__container( fix this as preview)
-  padding: 0;
-  background-color: transparent;
-}*/
+.modal__container_preview {
+  background-color: #fff;
+  max-width: 75vw;
+  max-height: 75vh;
+  position: relative;
+  margin: auto;
+}
 @media screen and (min-width: 320px) and (max-width: 365px) {
   .modal__container {
     box-sizing: border-box;
