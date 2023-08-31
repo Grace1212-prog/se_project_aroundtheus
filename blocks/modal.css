@@ -11,10 +11,7 @@
 .modal_opened {
   display: flex;
 }
-/*.modal_opened:hover {
-  visibility: visible;
-  opacity: 1;
-}*/
+
 .modal__container {
   padding: 34px 36px 36.51px 36px;
   background-color: #fff;
@@ -38,12 +35,11 @@
   right: -45px;
 }
 .modal__container > .modal__close {
-  border: 2px solid white;
+  border: 1px solid white;
+  border-block-start-style: dotted;
   border-radius: 50%;
   visibility: hidden;
-  width: 60px;
-  height: 60px;
-  transition: visibility 0.5s linear;
+  transition: visibility 0.5s, opacity 0.6s ease;
 }
 .modal__container:hover > .modal__close {
   visibility: visible;
@@ -103,8 +99,9 @@
   height: 40px;
   background-repeat: no-repeat;
   background-size: contain;
-  position: fixed;
-  top: 41px;
+  position: absolute;
+  top: -30px;
+  left: 550px;
 }
 .modal__button:hover {
   opacity: 0.8;
