@@ -117,6 +117,23 @@
 .modal__button:hover {
   opacity: 0.8;
 }
+.modal__image_preview {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: 430px;
+  height: 540px;
+}
+.modal__title_preview {
+  font-family: "inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 14.52px;
+  width: 291px;
+  height: 12px;
+  color: #fff;
+  margin-top: 0;
+}
 
 @media screen and (min-width: 320px) and (max-width: 365px) {
   .modal__container {
@@ -167,6 +184,12 @@
   .modal {
     padding: 0 19px 0 19px;
   }
+   .modal__image_preview {
+    max-width: 75vw;
+    max-height: 75vh;
+    width: 240px;
+    height: 299px;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 629px) {
   .modal__container {
@@ -178,5 +201,9 @@
     width: 26px;
     height: 26px;
     left: calc(100% - -20px);
+  }
+   .modal__image_preview {
+    width: 340px;
+    height: 399px;
   }
 }

@@ -47,7 +47,7 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageCloseButton = previewImageModal.querySelector(
   ".modal__close_preview"
 );
-const modalTitle = previewImageModal.querySelector(".card__title_preview");
+const modalTitle = previewImageModal.querySelector(".modal__title_preview");
 
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
@@ -133,7 +133,7 @@ function getCardElement(cardData) {
   });
 
   cardImageEL.addEventListener("click", () => {
-    const modalImage = previewImageModal.querySelector(".card__image_preview");
+    const modalImage = previewImageModal.querySelector(".modal__image_preview");
     modalImage.src = cardData.link;
     modalImage.alt = cardData.name;
     modalTitle.textContent = cardData.name;
