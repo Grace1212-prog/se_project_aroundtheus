@@ -49,7 +49,7 @@
 }
 .card__title_preview {
   font-family: "inter", sans-serif;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 12px;
   font-style: normal;
   line-height: 14.52px;
@@ -57,7 +57,6 @@
   height: 12px;
   color: #fff;
   margin-top: 0;
-  padding-top: 10px;
 }
 .card__delete-button {
   background: url(../images/Trash.svg) center no-repeat;
@@ -74,4 +73,20 @@
 .card__image_preview {
   max-width: 75vw;
   max-height: 75vh;
+  width: 430px;
+  height: 540px;
+}
+@media screen and (max-width: 480px) {
+  .card__image_preview {
+    max-width: 75vw;
+    max-height: 75vh;
+    width: 240px;
+    height: 299px;
+  }
+}
+@media screen and (min-width: 520px) and (max-width: 596px) {
+  .card__image_preview {
+    width: 340px;
+    height: 399px;
+  }
 }

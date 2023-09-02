@@ -32,6 +32,8 @@
   max-height: 75vh;
   position: relative;
   margin: auto;
+  width: 330px;
+  height: 330px;
 }
 .modal__close {
   background-image: url("../images/Close\ Icon.svg");
@@ -105,8 +107,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  top: -50px;
-  left: calc(100% + 5px);
+  top: -15px;
+  left: calc(100% + 60px);
 }
 .modal__close_preview:hover {
   opacity: 0.5;
@@ -155,7 +157,12 @@
   .modal__close {
     width: 26px;
     height: 26px;
-    right: 18.62px;
+  }
+  .modal__close_preview {
+    width: 26px;
+    height: 26px;
+    top: -10px;
+    left: calc(100% + -1px);
   }
   .modal {
     padding: 0 19px 0 19px;
@@ -166,5 +173,10 @@
     padding: 25px 22px 25px 22px;
     width: 282px;
     height: 322px;
+  }
+  .modal__close_preview {
+    width: 26px;
+    height: 26px;
+    left: calc(100% - -20px);
   }
 }
