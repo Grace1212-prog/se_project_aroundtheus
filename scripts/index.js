@@ -59,6 +59,7 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 function closePopup(popup) {
+  document.removeEventListener("keydown", keyHandler);
   popup.classList.remove("modal_opened");
 }
 
@@ -76,6 +77,7 @@ profileEditForm.addEventListener("submit", (e) => {
 });
 
 function openModal(modal) {
+  document.addEventListener("keydown", keyHandler);
   modal.classList.add("modal_opened");
 }
 
@@ -138,11 +140,14 @@ initialCards.forEach((cardData) => {
   }
 }); */
 
-function keyHandler(evt, profileEditModal) {
+function keyHandler(evt) {
   const key = evt.key;
   if (key === "Escape") {
-    closePopup(profileEditModal);
+    const openedModal = document.querySelector(".modal_opened");
+    closePopup(openedModal);
   }
 }
 
 profileEditModal.addEventListener("keydown", keyHandler);
+addCardForm.addEventListener("keydown", keyHandler);
+previewImageModal.addEventListener("keydown", keyHandler);
