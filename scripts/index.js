@@ -130,3 +130,19 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEL.prepend(cardElement);
 });
+
+/*profileEditModal.addEventListener("keydown", function (evt) {
+  const key = evt.key;
+  if (key === "Escape") {
+    closePopup(profileEditModal);
+  }
+}); */
+
+function keyHandler(evt, profileEditModal) {
+  const key = evt.key;
+  if (key === "Escape") {
+    closePopup(profileEditModal);
+  }
+}
+
+profileEditModal.addEventListener("keydown", keyHandler);
