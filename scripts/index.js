@@ -133,6 +133,14 @@ initialCards.forEach((cardData) => {
   cardListEL.prepend(cardElement);
 });
 
+[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closePopup(modal);
+    }
+  });
+});
+
 /*profileEditModal.addEventListener("keydown", function (evt) {
   const key = evt.key;
   if (key === "Escape") {

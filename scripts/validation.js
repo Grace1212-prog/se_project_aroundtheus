@@ -28,19 +28,7 @@ function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 }
 
-//have disabled button function
-
-//enable button function
-
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-  // let foundInvalid = false;
-
-  /* inputEls.forEach((inputEl) => {
-    if (!inputEl.validity.valid) {
-      foundInvalid = true;
-    }
-  });*/
-
   if (hasInvalidInput(inputEls)) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
@@ -70,6 +58,7 @@ function enableValidation(options) {
     });
 
     setEventListeners(formEl, options);
+
     //look for inputs inside of form
     //loop through all the inputs to see if all are valid
     //if input is not valid
