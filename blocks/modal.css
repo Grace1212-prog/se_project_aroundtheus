@@ -184,6 +184,7 @@
   }
   .modal__input:last-of-type {
     margin-bottom: 55px;
+    width: 220px;
   }
   .modal__button[type="submit"] {
     width: 238px;
@@ -223,5 +224,8 @@
   .modal__image_preview {
     width: 340px;
     height: 399px;
+  }
+  .modal__input:last-of-type {
+    width: 270px;
   }
 }
