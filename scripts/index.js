@@ -85,10 +85,7 @@ function openModal(modal) {
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
-/*closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
-  button.addEventListener("click", () => closePopup(popup));
-});*/
+
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
@@ -156,6 +153,10 @@ modals.forEach((modal) => {
   });
 });
 */
+/*closeButtons.forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closePopup(popup));
+});*/
 
 function handleEscape(evt) {
   const key = evt.key;

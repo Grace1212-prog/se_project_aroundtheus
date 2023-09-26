@@ -1,4 +1,3 @@
-//console.log("hello from validation js");
 
 // enabling validation by calling enableValidation()
 // pass all the settings on call
