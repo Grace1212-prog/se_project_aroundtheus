@@ -10,12 +10,6 @@ This is the third project of the Web Development at TripleTen. It is a responsiv
 - Grid layouts
 - Figma
 
-** Project Images**
-
-![Alt text](<./images/around%20the%20u.s%20(responsive%20design%201).png>)
-![Alt text](./images/Mobile%20layout.png)
-![Alt text](./images/Web%20responsive%20layout.png)
-
 # feat/ JavaScript: Around The U.S.
 
 I have added functionality to the project using JavaScript
@@ -27,6 +21,11 @@ I have added functionality to the project using JavaScript
 - Included a feature that allows the users to close the popups by clicking on the overlay i.e. anywhere outside the popup's borders
 - feature that allows the users to close the popup by pressing the Esc Key
 
+** Project Images**
+
+![Alt text](<./images/around%20the%20u.s%20(responsive%20design%201).png>)
+![Alt text](./images/Mobile%20layout.png)
+![Alt text](./images/Web%20responsive%20layout.png)
 ![Alt text](./images/validation%20of%20form-%20javascript.png)
 ![Alt text](./images/validation%20of%20form%202%20-javascript.png)
 
