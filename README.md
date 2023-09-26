@@ -16,7 +16,7 @@ This is the third project of the Web Development at TripleTen. It is a responsiv
 ![Alt text](./images/Mobile%20layout.png)
 ![Alt text](./images/Web%20responsive%20layout.png)
 
-# Project 3 feat/ JavaScript: Around The U.S.
+# feat/ JavaScript: Around The U.S.
 
 I have added functionality to the project using JavaScript
 
