@@ -1,3 +1,5 @@
+import Card from "../components/card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,6 +26,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg ",
   },
 ];
+
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+card.getView();
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -57,8 +67,8 @@ const modals = document.querySelectorAll(".modal");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
 const cardListEL = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
+//const cardTemplate =
+//document.querySelector("#card-template").content.firstElementChild;
 
 function closePopup(popup) {
   document.removeEventListener("keydown", handleEscape);
@@ -85,8 +95,6 @@ function openModal(modal) {
 
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
-
-
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   const name = cardTitleInput.value;
@@ -100,19 +108,19 @@ function handleAddCardFormSubmit(evt) {
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEL = cardElement.querySelector(".card__image");
-  const cardTitleEL = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+  //const cardElement = cardTemplate.cloneNode(true);
+  //const cardImageEL = cardElement.querySelector(".card__image");
+  //const cardTitleEL = cardElement.querySelector(".card__title");
+  //const likeButton = cardElement.querySelector(".card__like-button");
+  //const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+  // likeButton.addEventListener("click", () => {
+  //   likeButton.classList.toggle("card__like-button_active");
+  // });
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  // deleteButton.addEventListener("click", () => {
+  //   cardElement.remove();
+  // });
 
   cardImageEL.addEventListener("click", () => {
     modalImage.src = cardData.link;
