@@ -113,30 +113,32 @@ function getCardElement(cardData) {
   //const cardTitleEL = cardElement.querySelector(".card__title");
   //const likeButton = cardElement.querySelector(".card__like-button");
   //const deleteButton = cardElement.querySelector(".card__delete-button");
-
   // likeButton.addEventListener("click", () => {
   //   likeButton.classList.toggle("card__like-button_active");
   // });
-
   // deleteButton.addEventListener("click", () => {
   //   cardElement.remove();
   // });
-
-  cardImageEL.addEventListener("click", () => {
+  // cardImageEL.addEventListener("click", () => {
+  //   modalImage.src = cardData.link;
+  //   modalImage.alt = cardData.name;
+  //   modalTitle.textContent = cardData.name;
+  //   openModal(previewImageModal);
+  // });
+  // cardImageEL.src = cardData.link;
+  // cardImageEL.alt = cardData.name;
+  // cardTitleEL.textContent = cardData.name;
+  // return cardElement;
+}
+initialCards.forEach((cardData) => {
+  const card = new Card(cardData, "#card-template", (name, link) => {
     modalImage.src = cardData.link;
     modalImage.alt = cardData.name;
     modalTitle.textContent = cardData.name;
     openModal(previewImageModal);
   });
 
-  cardImageEL.src = cardData.link;
-  cardImageEL.alt = cardData.name;
-  cardTitleEL.textContent = cardData.name;
-  return cardElement;
-}
-
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
+  const cardElement = card.getView(); //getCardElement(cardData);
   cardListEL.prepend(cardElement);
 });
 

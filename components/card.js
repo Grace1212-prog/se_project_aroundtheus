@@ -22,7 +22,7 @@ export default class Card {
       });
     //image preview
     this._cardElement
-      .querySelector(".cards__image")
+      .querySelector(".card__image")
       .addEventListener("click", () => {
         this._handleImageClick(this);
       });
@@ -44,23 +44,25 @@ export default class Card {
   }
 
   getView() {
-    const cardElement = cardTemplate.cloneNode(true);
-    const cardTemplate =
-      document.querySelector("#card-template").content.firstElementChild;
+    // const cardElement = cardTemplate.cloneNode(true);
+    // const cardTemplate =
+    //   document.querySelector("#card-template").content.firstElementChild;
+    const cardData = (this._name, this._link);
+
     this._cardElement = document
       .querySelector(this._cardSelector)
-      .content.querySelector(".cards__list")
+      .content.querySelector(".card")
       .cloneNode(true);
     //get the card view
-    const cardImageEL = cardElement.querySelector(".card__image");
+    const cardImageEL = this._cardElement.querySelector(".card__image");
     cardImageEL.src = cardData.link;
     cardImageEL.alt = cardData.name;
 
-    const cardTitleEL = cardElement.querySelector(".card__title");
+    const cardTitleEL = this._cardElement.querySelector(".card__title");
     cardTitleEL.textContent = cardData.name;
     //set event listeners
     this._setEventListeners();
     //return the card
-    return cardElement;
+    return this._cardElement;
   }
 }
