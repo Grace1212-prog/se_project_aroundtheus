@@ -47,7 +47,7 @@ export default class Card {
     // const cardElement = cardTemplate.cloneNode(true);
     // const cardTemplate =
     //   document.querySelector("#card-template").content.firstElementChild;
-    const cardData = (this._name, this._link);
+    const cardData = { link: this._link, name: this._name };
 
     this._cardElement = document
       .querySelector(this._cardSelector)
@@ -55,8 +55,8 @@ export default class Card {
       .cloneNode(true);
     //get the card view
     const cardImageEL = this._cardElement.querySelector(".card__image");
-    cardImageEL.src = cardData.link;
-    cardImageEL.alt = cardData.name;
+    cardImageEL.src = this._link;
+    cardImageEL.alt = this._name;
 
     const cardTitleEL = this._cardElement.querySelector(".card__title");
     cardTitleEL.textContent = cardData.name;
