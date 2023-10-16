@@ -36,8 +36,19 @@ const cardData = {
 const card = new Card(cardData, "#card-template");
 card.getView();
 
+const formEl = document.querySelectorAll(".modal__form");
+const options = config();
 const formValidation = new FormValidation({ formEl, options }, ".modal__form");
-formValidation.enableValidation();
+formValidation.enableValidation(config);
+
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
