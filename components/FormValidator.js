@@ -1,8 +1,6 @@
 export default class FormValidation {
-  constructor({ formEl, inputEl }, enableValidation, options) {
+  constructor(formEl, options) {
     this._formEl = formEl;
-    this._inputEl = inputEl;
-    enableValidation = enableValidation;
     this._options = options;
   }
 
