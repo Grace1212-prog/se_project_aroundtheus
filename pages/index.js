@@ -36,19 +36,7 @@ const cardData = {
 const card = new Card(cardData, "#card-template");
 card.getView();
 
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 
-const formEl = document.querySelectorAll(".modal__form");
-
-const formValidation = new FormValidation(formEl, options);
-formValidation.enableValidation();
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -190,3 +178,22 @@ function handleEscape(evt) {
     closePopup(openedModal);
   }
 }
+
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+//const addCardFormEl = document.querySelector(".modal__form");
+
+//const profileEditFormEl = document.querySelector("");
+
+const addCardFormValidation = new FormValidation(addCardForm, config);
+addCardFormValidation.enableValidation();
+
+const profileEditModalFormValidation = new FormValidation(profileEditModal, config);
+profileEditModalFormValidator.enableValidation();
