@@ -36,8 +36,6 @@ const cardData = {
 const card = new Card(cardData, "#card-template");
 card.getView();
 
-
-
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
@@ -188,12 +186,14 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-//const addCardFormEl = document.querySelector(".modal__form");
 
-//const profileEditFormEl = document.querySelector("");
+const addCardFormValidator = new FormValidation(addCardForm, config);
+addCardFormValidator.enableValidation();
+addCardFormValidator.toggleButtonState();
 
-const addCardFormValidation = new FormValidation(addCardForm, config);
-addCardFormValidation.enableValidation();
-
-const profileEditModalFormValidation = new FormValidation(profileEditModal, config);
+const profileEditModalFormValidator = new FormValidation(
+  profileEditModal,
+  config
+);
 profileEditModalFormValidator.enableValidation();
+profileEditModalFormValidator.toggleButtonState();

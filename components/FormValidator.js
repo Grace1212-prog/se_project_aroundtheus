@@ -26,9 +26,7 @@ export default class FormValidation {
   }
 
   _hideInputError({ inputErrorClass, errorClass }) {
-    const errorMessageEl = this._formEl.querySelector(
-      `#${this._inputEl.id}-error`
-    );
+    const errorMessageEl = this._formEl.querySelector(`#${inputEl.id}-error`);
     this._inputEl.classList.remove(this._inputErrorClass);
     errorMessageEl.textContent = "";
     errorMessageEl.classList.remove(this._errorClass);
@@ -36,8 +34,8 @@ export default class FormValidation {
 
   _setEventListeners() {
     const { inputSelector, submitButtonSelector } = this._options;
-    this._inputEls = [...this._formEl.querySelectorAll(inputSelector)];
-    this._submitButton = this._formEl.querySelector(submitButtonSelector);
+    this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
+    this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
 
     inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
@@ -52,7 +50,7 @@ export default class FormValidation {
   }
 
   toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-    if (hasInvalidInput(this._inputEls)) {
+    if (hasInvalidInput()) {
       this._submitButton.classList.add(this._inactiveButtonClass);
       this._submitButton.disabled = true;
       return;
@@ -64,7 +62,7 @@ export default class FormValidation {
   //enables form validation
 
   enableValidation() {
-    formEls.forEach((formEl) => {
+    formEls.forEach(() => {
       this._formEl.addEventListener("submit", (e) => {
         e.preventDefault();
       });
@@ -72,7 +70,7 @@ export default class FormValidation {
       setEventListeners();
     });
 
-    enableValidation(config);
+    enableValidation();
   }
 }
 
