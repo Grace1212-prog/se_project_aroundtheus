@@ -33,11 +33,11 @@ export default class FormValidation {
   }
 
   _setEventListeners() {
-    const { inputSelector, submitButtonSelector } = this._options;
+    //const { this._inputSelector, this._submitButtonSelector } = this._options;
     this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
     this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
 
-    inputEls.forEach((inputEl) => {
+    this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
         this._checkInputValidity(inputEl);
         this._toggleButtonState();
@@ -62,15 +62,10 @@ export default class FormValidation {
   //enables form validation
 
   enableValidation() {
-    formEls.forEach(() => {
-      this._formEl.addEventListener("submit", (e) => {
-        e.preventDefault();
-      });
+    this._setEventListeners();
+    //toggleButtonState();
 
-      setEventListeners();
-    });
-
-    enableValidation();
+    //enableValidation();
   }
 }
 
