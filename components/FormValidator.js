@@ -11,29 +11,26 @@ export default class FormValidation {
 
   _checkInputValidity(inputEl) {
     if (!inputEl.validity.valid) {
-      return this._showInputError();
+      return this._showInputError(inputEl);
     }
-    this._hideInputError();
+    this._hideInputError(inputEl);
   }
 
-  _showInputError({ inputErrorClass, errorClass }) {
-    const errorMessageEl = this._formEl.querySelector(
-      `#${this._inputEl.id}-error`
-    );
-    this._inputEl.classList.add(this._inputErrorClass);
-    errorMessageEl.textContent = this._inputEl.validationMessage;
+  _showInputError(input) {
+    const errorMessageEl = this._formEl.querySelector(`#${input.id}-error`);
+    input.classList.add(this._inputErrorClass);
+    errorMessageEl.textContent = input.validationMessage;
     errorMessageEl.classList.add(this._errorClass);
   }
 
-  _hideInputError({ inputErrorClass, errorClass }) {
-    const errorMessageEl = this._formEl.querySelector(`#${inputEl.id}-error`);
-    this._inputEl.classList.remove(this._inputErrorClass);
+  _hideInputError(input) {
+    const errorMessageEl = this._formEl.querySelector(`#${input.id}-error`);
+    input.classList.remove(this._inputErrorClass);
     errorMessageEl.textContent = "";
     errorMessageEl.classList.remove(this._errorClass);
   }
 
   _setEventListeners() {
-    //const { this._inputSelector, this._submitButtonSelector } = this._options;
     this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
     this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
 
@@ -45,12 +42,12 @@ export default class FormValidation {
     });
   }
 
-  hasInvalidInput(inputList) {
+  _hasInvalidInput(inputList) {
     return !inputList.every((inputEl) => inputEl.validity.valid);
   }
 
-  toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-    if (hasInvalidInput()) {
+  _toggleButtonState() {
+    if (this._hasInvalidInput(this._inputEls)) {
       this._submitButton.classList.add(this._inactiveButtonClass);
       this._submitButton.disabled = true;
       return;
@@ -59,13 +56,8 @@ export default class FormValidation {
     this._submitButton.disabled = false;
   }
 
-  //enables form validation
-
   enableValidation() {
     this._setEventListeners();
-    //toggleButtonState();
-
-    //enableValidation();
   }
 }
 

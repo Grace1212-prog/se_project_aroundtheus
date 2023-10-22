@@ -189,11 +189,11 @@ const config = {
 
 const addCardFormValidator = new FormValidation(addCardForm, config);
 addCardFormValidator.enableValidation();
-addCardFormValidator.toggleButtonState();
+
 
 const profileEditModalFormValidator = new FormValidation(
   profileEditModal,
   config
 );
 profileEditModalFormValidator.enableValidation();
-profileEditModalFormValidator.toggleButtonState();
+
