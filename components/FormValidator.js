@@ -32,7 +32,9 @@ export default class FormValidation {
 
   _setEventListeners() {
     this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
-    this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
+    this._submitButtons = this._formEl.querySelector(
+      this._submitButtonSelector
+    );
 
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
@@ -48,12 +50,12 @@ export default class FormValidation {
 
   _toggleButtonState() {
     if (this._hasInvalidInput(this._inputEls)) {
-      this._submitButton.classList.add(this._inactiveButtonClass);
-      this._submitButton.disabled = true;
+      this._submitButtons.classList.add(this._inactiveButtonClass);
+      this._submitButtons.disabled = true;
       return;
     }
-    this._submitButton.classList.remove(this._inactiveButtonClass);
-    this._submitButton.disabled = false;
+    this._submitButtons.classList.remove(this._inactiveButtonClass);
+    this._submitButtons.disabled = false;
   }
 
   enableValidation() {
