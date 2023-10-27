@@ -199,3 +199,6 @@ const profileEditModalFormValidator = new FormValidation(
   config
 );
 profileEditModalFormValidator.enableValidation();
+//profileEditModalFormValidator.toggleButtonState();
+
+addCardFormValidator.toggleButtonState();
