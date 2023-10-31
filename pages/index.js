@@ -94,7 +94,10 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
-addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+addNewCardButton.addEventListener("click", () => {
+  addCardFormValidator.toggleButtonState();
+  openModal(addCardModal);
+});
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
@@ -193,13 +196,9 @@ const config = {
 
 const addCardFormValidator = new FormValidation(addCardForm, config);
 addCardFormValidator.enableValidation();
-addCardFormValidator.toggleButtonState();
 
 const profileEditModalFormValidator = new FormValidation(
   profileEditModal,
   config
 );
 profileEditModalFormValidator.enableValidation();
-profileEditModalFormValidator.toggleButtonState();
-
-//addCardFormValidator.toggleButtonState();
