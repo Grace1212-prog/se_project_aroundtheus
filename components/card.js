@@ -19,7 +19,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
-        this._handleLikeIcon();
+        this._handleLikeIcon(this);
       });
     //".card__delete-button"
     this._cardElement
@@ -67,6 +67,13 @@ export default class Card {
 
     const cardTitleEL = this._cardElement.querySelector(".card__title");
     cardTitleEL.textContent = cardData.name;
+
+    const likeButton = this._cardElement.querySelector(".card__like-button");
+
+    const deleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
+    this._cardElement.remove();
     //set event listeners
     this._setEventListeners();
     //return the card
