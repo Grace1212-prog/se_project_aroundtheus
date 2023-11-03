@@ -43,9 +43,7 @@ export default class Card {
   }
 
   getView() {
-    // const cardElement = cardTemplate.cloneNode(true);
-    // const cardTemplate =
-    //   document.querySelector("#card-template").content.firstElementChild;
+    
     const cardData = { link: this._link, name: this._name };
 
     this._cardElement = document
@@ -60,11 +58,6 @@ export default class Card {
     const cardTitleEL = this._cardElement.querySelector(".card__title");
     cardTitleEL.textContent = cardData.name;
 
-    const likeButton = this._cardElement.querySelector(".card__like-button");
-
-    const deleteButton = this._cardElement.querySelector(
-      ".card__delete-button"
-    );
     this._cardElement.remove();
     //set event listeners
     this._setEventListeners();
