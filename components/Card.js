@@ -36,14 +36,8 @@ export default class Card {
     this._cardElement.remove();
     this._cardElement = null;
   }
-  _handleImageClick() {
-    this._cardElement
-      .querySelector(".card__image")
-      .classList.add("modal_opened");
-  }
 
   getView() {
-    
     const cardData = { link: this._link, name: this._name };
 
     this._cardElement = document
@@ -58,7 +52,6 @@ export default class Card {
     const cardTitleEL = this._cardElement.querySelector(".card__title");
     cardTitleEL.textContent = cardData.name;
 
-    this._cardElement.remove();
     //set event listeners
     this._setEventListeners();
     //return the card
