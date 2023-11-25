@@ -1,5 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidation from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 import {
   initialCards,
@@ -20,15 +22,25 @@ import {
   profileDescription,
 } from "../utils/constants.js";
 
-function closePopup(popup) {
-  document.removeEventListener("keydown", handleEscape);
-  popup.classList.remove("modal_opened");
-}
+//instantiate the class
+// pass submission listeners to class
+// call setEventListeners
+
+const newCardPopup = new PopupWithForm("#new-card-popup", () => {});
+newCardPopup.open();
+newCardPopup.close();
+newCardPopup.setEventListeners();
+
+// function closePopup(popup) {
+//   document.removeEventListener("keydown", handleEscape);
+//   popup.classList.remove("modal_opened");
+// }
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   openModal(profileEditModal);
+  //use the modal's open method
 });
 
 profileEditForm.addEventListener("submit", (e) => {
@@ -38,10 +50,10 @@ profileEditForm.addEventListener("submit", (e) => {
   closePopup(profileEditModal);
 });
 
-function openModal(modal) {
-  document.addEventListener("keydown", handleEscape);
-  modal.classList.add("modal_opened");
-}
+// function openModal(modal) {
+//   document.addEventListener("keydown", handleEscape);
+//   modal.classList.add("modal_opened");
+// }
 
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.toggleButtonState();
