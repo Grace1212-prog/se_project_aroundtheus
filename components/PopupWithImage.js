@@ -1,9 +1,12 @@
 import Popup from "./Popup.js";
+import { modalImage, modalTitle } from "../utils/constants.js";
 
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
-    this._popupImage = this._popupElement.querySelector("#preview-image-modal");
+    this._popupImage = this._popupElement.querySelector(
+      ".modal__image_preview"
+    );
   }
 
   close() {
@@ -12,9 +15,9 @@ export default class PopupWithImage extends Popup {
   }
 
   open(cardData) {
-    this._popupImage.src = cardData.link;
-    this._popupImage.alt = cardData.name;
-    this._popupTitle.textContent = cardData.name;
+    modalImage.src = cardData.link;
+    modalImage.alt = cardData.name;
+    modalTitle.textContent = cardData.name;
     super.open();
   }
 }

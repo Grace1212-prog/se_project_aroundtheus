@@ -1,3 +1,4 @@
+import { modals } from "../utils/constants.js";
 import Card from "./Card.js";
 
 export default class Popup {
@@ -7,15 +8,15 @@ export default class Popup {
 
   open() {
     //open popup
-    modal.classList.add("modal_opened");
+    modals.classList.add("modal_opened");
   }
 
   close() {
     //close popup
-    this._popupElement.classList.remove("modal_opened");
+    modals.classList.remove("modal_opened");
   }
 
-  _handleEscClose() {
+  _handleEscClose(evt) {
     //listen for esc buttons
     const key = evt.key;
     if (key === "Escape") {

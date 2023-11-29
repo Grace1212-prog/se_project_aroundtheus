@@ -1,19 +1,20 @@
 import Popup from "./Popup.js";
+import { profileEditForm, profileEditModal } from "../utils/constants.js";
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
-    this._popupForm = this._popupElement.querySelectorAll(".modal__form");
+    this._popupForm = document.querySelectorAll(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
   }
 
   close() {
-    this._popupForm.reset();
+    profileEditForm.reset();
     super.close();
   }
 
   open() {
-    this._popupForm.reset();
+    profileEditForm.reset();
     super.open();
   }
 
