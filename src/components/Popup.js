@@ -1,27 +1,33 @@
-import { modals } from "../utils/constants.js";
+import { modals } from "../constants.js";
 import Card from "./Card.js";
 
 export default class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(popupSelector);
+    this._handleEsc = (evt) => {
+      this._handleEsc(evt);
+    };
   }
 
   open() {
     //open popup
-    modals.classList.add("modal_opened");
+    this._popupElement.classList.add("modal_opened");
+    document.addEventListener("keydown", this._handleEsc);
   }
 
   close() {
     //close popup
-    modals.classList.remove("modal_opened");
+
+    this._popupElement.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this._handleEsc);
   }
 
   _handleEscClose(evt) {
     //listen for esc buttons
     const key = evt.key;
     if (key === "Escape") {
-      const openedModal = document.querySelector(".modal_opened");
-      closePopup(openedModal);
+      //const openedModal = document.querySelector(".modal_opened");
+      this.close();
     }
   }
 
@@ -30,10 +36,10 @@ export default class Popup {
     this._popupElement.forEach((popupSelector) => {
       popupSelector.addEventlistener("click", (evt) => {
         if (evt.target.classList.contains("modal_opened")) {
-          closePopup(modal);
+          this.close();
         }
         if (evt.target.classList.contains("modal__close")) {
-          closePopup(modal);
+          this.close();
         }
       });
     });

@@ -7,7 +7,7 @@
     <meta name="keywords" content="Moutains, Lakes,National Park, Valley" />
     <meta name="author" content="Grace Banda" />
     <title>Around The U.S</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+
     <link rel="shortcut icon" href="./favicon.ico" />
   </head>
 
@@ -16,14 +16,18 @@
       <header class="header page__section">
         <img
           class="header__image"
-          src="./images/logo.svg"
+          src="<%=require('./images/logo.svg')%>"
           alt="Around the U.S Logo"
         />
       </header>
 
       <main class="content">
         <section class="profile page__section">
-          <img src="./images/Avatar.png" alt="Avatar" class="profile__image" />
+          <img
+            src="<%require('./images/Avatar.png')%>"
+            alt="Avatar"
+            class="profile__image"
+          />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
 
@@ -153,6 +157,5 @@
         </div>
       </li>
     </template>
-    <script type = "module" src= "./pages/index.js"></script>
   </body>
 </html>

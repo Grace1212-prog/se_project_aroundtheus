@@ -1,22 +1,22 @@
 import Popup from "./Popup.js";
-import { profileEditForm, profileEditModal } from "../utils/constants.js";
+import { profileEditForm, profileEditModal } from "../constants.js";
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
-    this._popupForm = document.querySelectorAll(".modal__form");
+    this._popupForm = document.querySelectorAll("#profile-edit-modal");
     this._handleFormSubmit = handleFormSubmit;
   }
 
   close() {
-    profileEditForm.reset();
+    //profileEditForm.reset();
     super.close();
   }
 
-  open() {
-    profileEditForm.reset();
-    super.open();
-  }
+  // open() {
+  //   profileEditForm.reset();
+  //   super.open();
+  // }
 
   _getInputValues() {
     //get all fields elements

@@ -2,6 +2,9 @@ import Card from "../components/Card.js";
 import FormValidation from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
+import Section from "../components/Section.js";
+import "../pages/index.css";
 
 import {
   initialCards,
@@ -20,16 +23,27 @@ import {
   addCardModal,
   profileTitle,
   profileDescription,
-} from "../utils/constants.js";
+} from "../constants.js";
 
 //instantiate the class
 // pass submission listeners to class
 // call setEventListeners
 
-const newCardPopup = new PopupWithForm("#new-card-popup", () => {});
+const newCardPopup = new PopupWithForm(
+  "#new-card-popup",
+  handleAddCardFormSubmit
+);
 newCardPopup.open();
 newCardPopup.close();
 newCardPopup.setEventListeners();
+
+const imagePopup = new PopupWithImage("#preview-image-modal");
+imagePopup.setEventListeners();
+
+const profileInfo = new UserInfo(".profile__title", ".profile__description");
+
+const section = new Section({ initialCards, createCard }, cardListEL);
+section.createCards();
 
 // function closePopup(popup) {
 //   document.removeEventListener("keydown", handleEscape);
@@ -57,7 +71,6 @@ profileEditForm.addEventListener("submit", (e) => {
 
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.toggleButtonState();
-  //openModal(addCardModal);
   newCardPopup.open();
 });
 
@@ -73,20 +86,15 @@ function handleAddCardFormSubmit(evt) {
 }
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", (name, link) => {
-    modalImage.src = cardData.link;
-    modalImage.alt = cardData.name;
-    modalTitle.textContent = cardData.name;
-    openModal(previewImageModal);
-  });
+export function createCard(cardData) {
+  const card = new Card(cardData, "#card-template");
   return card.getView();
 }
 
-initialCards.forEach((cardData) => {
-  const card = createCard(cardData);
-  cardListEL.prepend(card);
-});
+// initialCards.forEach((cardData) => {
+//   const card = createCard(cardData);
+//   cardListEL.prepend(card);
+// });
 
 //combining close button and overlay listeners together
 
