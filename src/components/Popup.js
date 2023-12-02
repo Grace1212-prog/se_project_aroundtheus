@@ -33,15 +33,13 @@ export default class Popup {
 
   setEventListeners() {
     //sets event listeners
-    this._popupElement.forEach((popupSelector) => {
-      popupSelector.addEventlistener("click", (evt) => {
-        if (evt.target.classList.contains("modal_opened")) {
-          this.close();
-        }
-        if (evt.target.classList.contains("modal__close")) {
-          this.close();
-        }
-      });
+    this._popupElement.addEventlistener("click", (evt) => {
+      if (evt.target.classList.contains("modal_opened")) {
+        this.close();
+      }
+      if (evt.target.classList.contains("modal__close")) {
+        this.close();
+      }
     });
   }
 }

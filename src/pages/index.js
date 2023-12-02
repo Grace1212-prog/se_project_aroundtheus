@@ -29,13 +29,11 @@ import {
 // pass submission listeners to class
 // call setEventListeners
 
-const newCardPopup = new PopupWithForm(
-  "#new-card-popup",
+const addCardPopup = new PopupWithForm(
+  "#add-card-modal",
   handleAddCardFormSubmit
 );
-newCardPopup.open();
-newCardPopup.close();
-newCardPopup.setEventListeners();
+addCardPopup.setEventListeners();
 
 const imagePopup = new PopupWithImage("#preview-image-modal");
 imagePopup.setEventListeners();

@@ -4,12 +4,14 @@ import { profileEditForm, profileEditModal } from "../constants.js";
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
-    this._popupForm = document.querySelectorAll("#profile-edit-modal");
+    this._popupForm = document.querySelectorAll(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
+    this._closeButton = this._popupElement.querySelector(".modal__close");
   }
 
   close() {
     //profileEditForm.reset();
+    this._popupForm.reset();
     super.close();
   }
 
@@ -36,13 +38,22 @@ export default class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners();
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
-
       this._handleFormSubmit(this._getInputValues());
-
-      this._popupForm.reset();
+      //this._popupForm.reset();
     });
+    this._closeButton.addEventListener("click", () => {
+      this.close();
+    });
+    super.setEventListeners();
+  }
+
+  getCloseButton() {
+    return this._closeButton;
+  }
+
+  getForm() {
+    return this._popupForm;
   }
 }

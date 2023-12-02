@@ -1,12 +1,12 @@
 import { createCard } from "../pages";
 import { cardListEL } from "../constants";
 export default class Section {
-  constructor({ items, renderer }) {
+  constructor({ items, renderer }, containerSelector) {
     //this._initialArray = data;
     this._Items = items;
     this._renderer = renderer;
 
-    this._modalContainer = document.querySelector(".card__list");
+    this._containerSelector = document.querySelector(containerSelector);
   }
 
   renderItems() {
@@ -23,6 +23,6 @@ export default class Section {
   }
 
   addItems(item) {
-    this._modalContainer.prepend(item);
+    this._containerSelector.prepend(item);
   }
 }
