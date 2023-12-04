@@ -31,7 +31,7 @@ import {
 
 const addCardPopup = new PopupWithForm({
   popupSelector: "#add-card-modal",
-  handleFormSubmit: handleAddCardFormSubmit,
+  handleAddCardFormSubmit,
 });
 
 const profileCardPopup = new PopupWithForm({
@@ -88,7 +88,7 @@ function handleAddCardFormSubmit() {
   addCardPopup.close();
 }
 
-function handleProfileFormSubmit(UserInfo) {
+function handleProfileFormSubmit(profileEditModal) {
   newUserInfo.setUserInfo({
     name: nameInput.value,
     job: jobInput.value,
