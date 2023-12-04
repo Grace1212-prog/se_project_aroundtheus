@@ -4,9 +4,9 @@ import { profileEditForm, profileEditModal } from "../constants.js";
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
-    this._popupForm = document.querySelectorAll(".modal__form");
+    this._popupForm = document.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
-    this._closeButton = this._popupElement.querySelector(".modal__close");
+    this._closeModalButton = this._popupElement.querySelector(".modal__close");
   }
 
   close() {
@@ -43,14 +43,14 @@ export default class PopupWithForm extends Popup {
       this._handleFormSubmit(this._getInputValues());
       //this._popupForm.reset();
     });
-    this._closeButton.addEventListener("click", () => {
+    this._closeModalButton.addEventListener("click", () => {
       this.close();
     });
     super.setEventListeners();
   }
 
   getCloseButton() {
-    return this._closeButton;
+    return this._closeModalButton;
   }
 
   getForm() {

@@ -29,19 +29,26 @@ import {
 // pass submission listeners to class
 // call setEventListeners
 
-const addCardPopup = new PopupWithForm(
-  "#add-card-modal",
-  handleAddCardFormSubmit
-);
+const addCardPopup = new PopupWithForm({
+  popupSelector: "#add-card-modal",
+  handleFormSubmit: handleAddCardFormSubmit,
+});
+
+const profileCardPopup = new PopupWithForm({
+  popupSelector: "#profile-edit-modal",
+  handleProfileFormSubmit,
+});
+
 addCardPopup.setEventListeners();
 
-const imagePopup = new PopupWithImage("#preview-image-modal");
+const imagePopup = new PopupWithImage({
+  popupSelector: "#preview-image-modal",
+});
 imagePopup.setEventListeners();
 
 const profileInfo = new UserInfo(".profile__title", ".profile__description");
 
 const section = new Section({ initialCards, createCard }, cardListEL);
-section.createCards();
 
 // function closePopup(popup) {
 //   document.removeEventListener("keydown", handleEscape);
@@ -51,7 +58,7 @@ section.createCards();
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
+  profileEditModal.open();
   //use the modal's open method
 });
 
@@ -59,7 +66,7 @@ profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup(profileEditModal);
+  profileEditModal.close();
 });
 
 // function openModal(modal) {
@@ -72,15 +79,21 @@ addNewCardButton.addEventListener("click", () => {
   newCardPopup.open();
 });
 
-function handleAddCardFormSubmit(evt) {
-  evt.preventDefault();
+function handleAddCardFormSubmit() {
+  //evt.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const cardData = { name, link };
-  const card = createCard(cardData);
-  cardListEL.prepend(card);
-  addCardForm.reset();
-  closePopup(addCardModal);
+  renderCard = ({ name, link }, cardListEL);
+
+  addCardPopup.close();
+}
+
+function handleProfileFormSubmit(UserInfo) {
+  newUserInfo.setUserInfo({
+    name: nameInput.value,
+    job: jobInput.value,
+  });
+  profileCardPopup.close(profileEditModal);
 }
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
@@ -127,7 +140,6 @@ export function createCard(cardData) {
 //     closePopup(openedModal);
 //   }
 // }
-
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
