@@ -24,10 +24,14 @@ import {
   profileTitle,
   profileDescription,
 } from "../constants.js";
+import Popup from "../components/Popup.js";
 
 //instantiate the class
 // pass submission listeners to class
 // call setEventListeners
+
+const popupSelector = new Popup(".modal_open");
+popupSelector.setEventListeners();
 
 const addCardPopup = new PopupWithForm({
   popupSelector: "#add-card-modal",
@@ -41,9 +45,7 @@ const profileCardPopup = new PopupWithForm({
 
 addCardPopup.setEventListeners();
 
-const imagePopup = new PopupWithImage({
-  popupSelector: "#preview-image-modal",
-});
+const imagePopup = new PopupWithImage("#preview-image-modal");
 imagePopup.setEventListeners();
 
 const profileInfo = new UserInfo(".profile__title", ".profile__description");
