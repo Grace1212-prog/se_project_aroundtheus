@@ -4,9 +4,7 @@ import { modalImage, modalTitle } from "../constants.js";
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
-    this._modalImage = document.querySelector(
-      ".modal__image_preview"
-    );
+    this._modalImage = document.querySelector(".modal__image_preview");
     this._modalTitle = document.querySelector(".modal__title_preview");
   }
 
