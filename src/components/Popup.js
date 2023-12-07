@@ -3,21 +3,21 @@ import Card from "./Card.js";
 
 export default class Popup {
   constructor({ popupSelector }) {
-    this._popupElement = document.querySelector(
-      ".modal_open");
+    this._popupElement = document.querySelector(".modal_open");
     this._closeModalButton = document.querySelector(".modal__close");
+    this._popupForm = document.querySelector(".modal__form");
   }
 
   open() {
     //open popup
-    this._popupElement.classList.add("modal_opened");
+    this._popupForm.classList.add("modal_opened");
     this.setEventListeners();
   }
 
   close() {
     //close popup
 
-    this._popupElement.classList.remove("modal_opened");
+    this._popupForm.classList.remove("modal_opened");
     document.removeEventListener("keydown", this._handleEscClose);
     document.removeEventListener("click", this._handdleOverlayClose);
     this._closeModalButton.removeEventListener(
@@ -34,7 +34,7 @@ export default class Popup {
     }
   }
 
-  _handdleOverlayClose = (evt) => {
+  _handleOverlayClose = (evt) => {
     if (evt.target.classList.contains("modal_opened")) {
       this.close();
     }

@@ -38,6 +38,8 @@ const addCardPopup = new PopupWithForm({
   handleAddCardFormSubmit,
 });
 
+//const newCardPopup = new PopupWithForm("")
+
 const profileCardPopup = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleProfileFormSubmit,
@@ -45,8 +47,8 @@ const profileCardPopup = new PopupWithForm({
 
 addCardPopup.setEventListeners();
 
-const imagePopup = new PopupWithImage("#preview-image-modal");
-imagePopup.setEventListeners();
+const imagePopup = new PopupWithImage("#preview-image-modal", handleImageClick);
+//imagePopup.setEventListeners();
 
 const profileInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -60,7 +62,7 @@ const section = new Section({ initialCards, createCard }, cardListEL);
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.open();
+  profileCardPopup.open();
   //use the modal's open method
 });
 
@@ -78,7 +80,8 @@ profileEditForm.addEventListener("submit", (e) => {
 
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.toggleButtonState();
-  newCardPopup.open();
+  //newCardPopup.open();
+  addCardPopup.open();
 });
 
 function handleAddCardFormSubmit() {
@@ -86,8 +89,8 @@ function handleAddCardFormSubmit() {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard = ({ name, link }, cardListEL);
-
-  addCardPopup.close();
+  addCardPopup.open();
+  //addCardPopup.close();
 }
 
 function handleProfileFormSubmit(profileEditModal) {
@@ -97,6 +100,18 @@ function handleProfileFormSubmit(profileEditModal) {
   });
   profileCardPopup.close(profileEditModal);
 }
+
+function handleImageClick({ link, name }) {
+  modalImage.src = link;
+  modalImage.alt = name;
+  imagePopup.open();
+}
+
+modalImage.addEventListener("click", handleImageClick);
+// imagePopup.addEventListener("click", () => {
+//   handleImageClick
+//   //previewImageModal.open();
+// });
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 export function createCard(cardData) {
@@ -104,10 +119,10 @@ export function createCard(cardData) {
   return card.getView();
 }
 
-// initialCards.forEach((cardData) => {
-//   const card = createCard(cardData);
-//   cardListEL.prepend(card);
-// });
+initialCards.forEach((cardData) => {
+  const card = createCard(cardData);
+  cardListEL.prepend(card);
+});
 
 //combining close button and overlay listeners together
 
