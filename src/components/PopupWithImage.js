@@ -13,9 +13,9 @@ export default class PopupWithImage extends Popup {
     super.close();
   }
 
-  open({ name, link }) {
+  open({ name: name, link: link }) {
     this._modalImage.src = link;
-    this._modalImage.alt = `image of ${name}`;
+    this._modalImage.alt = name;
     this._modalTitle.textContent = name;
     super.open();
   }

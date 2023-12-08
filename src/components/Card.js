@@ -23,7 +23,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick();
+        this._handleImageClick({ link: this._link, name: this._name });
       });
   }
 
@@ -39,7 +39,7 @@ export default class Card {
 
   _handleImageClick() {
     this._cardElement.querySelector(".modal_image_preview");
-    this._handleImageClick.open();
+    this._handleImageClick.open({ link: this._link, name: this._name });
   }
   getView() {
     const cardData = { link: this._link, name: this._name };

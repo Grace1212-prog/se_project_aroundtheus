@@ -101,13 +101,11 @@ function handleProfileFormSubmit(profileEditModal) {
   profileCardPopup.close(profileEditModal);
 }
 
-function handleImageClick({ link, name }) {
-  modalImage.src = link;
-  modalImage.alt = name;
-  imagePopup.open();
+function handleImageClick({ link: link, name: name }) {
+  imagePopup.open({ link: link, name: name });
 }
 
-modalImage.addEventListener("click", handleImageClick);
+//modalImage.addEventListener("click", handleImageClick);
 // imagePopup.addEventListener("click", () => {
 //   handleImageClick
 //   //previewImageModal.open();
@@ -115,7 +113,7 @@ modalImage.addEventListener("click", handleImageClick);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 export function createCard(cardData) {
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", handleImageClick);
   return card.getView();
 }
 
